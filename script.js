@@ -18,10 +18,12 @@ function inputLength() {
 //creates a new list element & clears the search bar
 function createListElement() {
   var li = document.createElement("li");
+  li.className = "list-group-item list-group-item-info";
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
   var btn = document.createElement("button");
+  btn.className = "btn btn-sm btn-danger float-right";
   btn.appendChild(document.createTextNode("x"));
   li.appendChild(btn);
   btn.onclick = removeParent;
@@ -40,10 +42,13 @@ function addListAfterKeyPress(event) {
     createListElement();
   }
 }
-//creates button with child text delete.
+//creates delete buttons for existing items
 function deleteButton() {
   var btn = document.createElement("button");
-  btn.appendChild(document.createTextNode("x"));
+  btn.className = "btn btn-sm btn-outline-secondary float-right ";
+  var delbtn = document.createElement("i");
+  delbtn.className = "far fa-trash-alt";
+  btn.appendChild(delbtn);
   //Adds to existing list
   listItems[i].appendChild(btn);
   btn.onclick = removeParent;

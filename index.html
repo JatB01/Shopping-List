@@ -5,29 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Javascript + DOM</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Create your shopping list!</title>
 </head>
 
 <body>
-    <h1>Shopping List</h1>
-    <p id="first">Get it done today</p>
-    <input id="userinput" type="text" placeholder="enter items">
-    <button id="enter">Enter</button>
-    <div>
-        <button id="clear">Clear List</button>
-    </div>
-    <div class="list">
-        <ul>
-            <li id="listitem1">Notebook</li>
-            <li id="listitem2">Jello</li>
-            <li id="listitem3">Spinach</li>
-            <li id="listitem4">Rice</li>
-            <li id="listitem5">Birthday Cake</li>
-            <li id="listitem6">Candles</li>
+    <div class="container mt-3 pagination-centered">
+        <h1 class="display-3 text-center my-4">
+            <i class="fas fa-shopping-basket mr-3"></i>Shopping List</h1>
+        <p class="text-center" id="first">Enter your items and update the shopping list!</p>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="userinput" placeholder="enter items">
+            <div class="input-group-append ">
+                <button id="enter" class="btn btn-primary mx-2 ">Enter</button>
+                <button id="clear" class="btn btn-danger btn-sm ">Clear All</button>
+            </div>
+        </div>
+        <ul class="list-group ">
+            <li class="list-group-item list-group-item-info ">Notebook</li>
+            <li class="list-group-item list-group-item-info ">Peas</li>
+            <li class="list-group-item list-group-item-info ">Spinach</li>
+            <li class="list-group-item list-group-item-info ">Rice</li>
+            <li class="list-group-item list-group-item-info ">Birthday Cake</li>
+            <li class="list-group-item list-group-item-info ">Candles</li>
         </ul>
     </div>
-    <script type="text/javascript" src="script.js">
+    <script type="text/javascript " src="script.js ">
     </script>
 </body>
 
