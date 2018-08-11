@@ -59,12 +59,19 @@ function removeParent(evt) {
   evt.target.parentNode.remove();
 }
 
+//deletes all list elements on click
 ClearAll.onclick = function(evt) {
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
 };
+//deletes last item by using 'del' key
+function delitem(evt) {
+  if (evt.keyCode == 46) ul.removeChild(ul.lastElementChild);
+}
 
 button.addEventListener("click", addListAfterClick);
 
-input.addEventListener("keypress", addListAfterKeyPress);
+input.addEventListener("keydown", addListAfterKeyPress);
+
+document.addEventListener("keydown", delitem);
