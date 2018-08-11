@@ -22,11 +22,10 @@ function createListElement() {
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
-  var btn = document.createElement("button");
-  btn.className = "btn btn-sm btn-danger float-right";
-  btn.appendChild(document.createTextNode("x"));
-  li.appendChild(btn);
-  btn.onclick = removeParent;
+  var delbtn = document.createElement("i");
+  delbtn.className = "far fa-trash-alt float-right";
+  li.appendChild(delbtn);
+  delbtn.onclick = removeParent;
 }
 
 //adds element once button clicked
@@ -44,14 +43,11 @@ function addListAfterKeyPress(event) {
 }
 //creates delete buttons for existing items
 function deleteButton() {
-  var btn = document.createElement("button");
-  btn.className = "btn btn-sm btn-outline-secondary float-right ";
   var delbtn = document.createElement("i");
-  delbtn.className = "far fa-trash-alt";
-  btn.appendChild(delbtn);
+  delbtn.className = "far fa-trash-alt float-right";
   //Adds to existing list
-  listItems[i].appendChild(btn);
-  btn.onclick = removeParent;
+  listItems[i].appendChild(delbtn);
+  delbtn.onclick = removeParent;
 }
 //runs to add delete buttons to existing items
 for (i = 0; i < listLength(); i++) {

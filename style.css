@@ -6,8 +6,17 @@ body {
   justify-content: center;
 }
 
-/* #enter,
-#userinput,
-#clear {
-  height: 50px;
-} */
+.far {
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.far:hover {
+  opacity: 1;
+}
+
+p {
+  font-family: "Pacifico", cursive;
+}
