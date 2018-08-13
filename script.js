@@ -1,9 +1,9 @@
 //Declare variables
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
-var ul = document.querySelector("ul");
+var ul = document.getElementById("ul");
 var ClearAll = document.getElementById("clear");
-var listItems = document.getElementsByTagName("li");
+var listItems = document.getElementsByClassName("list-group-item");
 
 //returns length of list
 function listLength() {

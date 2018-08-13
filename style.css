@@ -17,6 +17,13 @@ body {
   opacity: 1;
 }
 
-p {
+#first {
   font-family: "Pacifico", cursive;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
