@@ -65,8 +65,8 @@ for (i = 0; i < listLength(); i++) {
 
 //removes parent node. First checks if parent node is <s> and if so, removes grandparent <li>
 function removeParent(evt) {
-  console.log(evt.target.parentElement);
-  console.log(evt.target.parentElement == document.getElementById("s"));
+  // console.log(evt.target.parentElement);
+  // console.log(evt.target.parentElement == document.getElementById("s"));
   if (evt.target.parentElement == document.getElementById("s")) {
     evt.target.parentElement.parentElement.remove();
   } else {
