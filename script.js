@@ -67,7 +67,7 @@ for (i = 0; i < listLength(); i++) {
 
 //removes parent node. First checks if parent node is <li> and if so, removes parent. Otherwise it will be <s> so removes grandparent <li>
 $(document).on("click", "#del", function() {
-  console.log($(this));
+  // console.log($(this));
   if (
     $(this)
       .parent()
