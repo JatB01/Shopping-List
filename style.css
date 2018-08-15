@@ -27,3 +27,7 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+.checkbox {
+  margin-right: 10px;
+}
