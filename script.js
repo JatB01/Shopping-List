@@ -19,6 +19,10 @@ function inputLength() {
 function createListElement() {
   var li = document.createElement("li");
   li.className = "list-group-item list-group-item-info";
+  var cbox = document.createElement("input");
+  cbox.setAttribute("type", "checkbox");
+  cbox.className = "checkbox";
+  li.appendChild(cbox);
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
@@ -41,11 +45,15 @@ function addListAfterKeyPress(event) {
     createListElement();
   }
 }
-//creates delete buttons for existing items
+//creates delete buttons & checkbox for existing items
 function deleteButton() {
   var delbtn = document.createElement("i");
   delbtn.className = "far fa-trash-alt float-right";
+  var cbox = document.createElement("input");
+  cbox.setAttribute("type", "checkbox");
+  cbox.className = "checkbox";
   //Adds to existing list
+  listItems[i].insertBefore(cbox, listItems[i].firstChild);
   listItems[i].appendChild(delbtn);
   delbtn.onclick = removeParent;
 }
@@ -75,3 +83,18 @@ button.addEventListener("click", addListAfterClick);
 input.addEventListener("keydown", addListAfterKeyPress);
 
 document.addEventListener("keydown", delitem);
+
+//changes strikethrough on list
+$(document).on("change", ".checkbox", function() {
+  if (
+    $(this)
+      .parent()
+      .is("s")
+  ) {
+    $(this).unwrap();
+  } else {
+    $(this)
+      .parent()
+      .wrapInner("<s></s>");
+  }
+});
