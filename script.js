@@ -29,6 +29,7 @@ function createListElement() {
   input.value = "";
   var delbtn = document.createElement("i");
   delbtn.className = "far fa-trash-alt float-right";
+  delbtn.setAttribute("id", "del");
   li.appendChild(delbtn);
   delbtn.onclick = removeParent;
 }
@@ -50,29 +51,38 @@ function addListAfterKeyPress(event) {
 function deleteButton() {
   var delbtn = document.createElement("i");
   delbtn.className = "far fa-trash-alt float-right";
+  delbtn.setAttribute("id", "del");
   var cbox = document.createElement("input");
   cbox.setAttribute("type", "checkbox");
   cbox.className = "checkbox";
   //Adds to existing list
   listItems[i].insertBefore(cbox, listItems[i].firstChild);
   listItems[i].appendChild(delbtn);
-  delbtn.onclick = removeParent;
+  // delbtn.onclick = removeParent;
 }
 //runs to add delete buttons to existing items
 for (i = 0; i < listLength(); i++) {
   deleteButton();
 }
 
-//removes parent node. First checks if parent node is <s> and if so, removes grandparent <li>
-function removeParent(evt) {
-  // console.log(evt.target.parentElement);
-  // console.log(evt.target.parentElement == document.getElementById("s"));
-  if (evt.target.parentElement == document.getElementById("s")) {
-    evt.target.parentElement.parentElement.remove();
+//removes parent node. First checks if parent node is <li> and if so, removes parent. Otherwise it will be <s> so removes grandparent <li>
+$(document).on("click", "#del", function() {
+  console.log($(this));
+  if (
+    $(this)
+      .parent()
+      .is($("li"))
+  ) {
+    $(this)
+      .parent()
+      .remove();
   } else {
-    evt.target.parentElement.remove();
+    $(this)
+      .parent()
+      .parent()
+      .remove();
   }
-}
+});
 
 //deletes all list elements on click
 ClearAll.onclick = function(evt) {
