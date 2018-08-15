@@ -31,7 +31,7 @@ function createListElement() {
   delbtn.className = "far fa-trash-alt float-right";
   delbtn.setAttribute("id", "del");
   li.appendChild(delbtn);
-  delbtn.onclick = removeParent;
+  // delbtn.onclick = removeParent;
 }
 
 //adds element once button clicked
@@ -66,7 +66,7 @@ for (i = 0; i < listLength(); i++) {
 }
 
 //removes parent node. First checks if parent node is <li> and if so, removes parent. Otherwise it will be <s> so removes grandparent <li>
-$(document).on("click", "#del", function() {
+$(document).on("click", "", function() {
   // console.log($(this));
   if (
     $(this)
