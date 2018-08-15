@@ -4,6 +4,7 @@ var input = document.getElementById("userinput");
 var ul = document.getElementById("ul");
 var ClearAll = document.getElementById("clear");
 var listItems = document.getElementsByClassName("list-group-item");
+var s = document.getElementsByTagName("s");
 
 //returns length of list
 function listLength() {
@@ -62,9 +63,14 @@ for (i = 0; i < listLength(); i++) {
   deleteButton();
 }
 
-//removes parent node
+//removes parent node. First checks if parent node is <s> and if so, removes grandparent
 function removeParent(evt) {
-  evt.target.parentNode.remove();
+  console.log(evt.target.parentElement == document.getElementById("li"));
+  if (evt.target.parentElement == document.getElementById("li")) {
+    evt.target.parentElement.remove();
+  } else {
+    evt.target.parentElement.parentElement.remove();
+  }
 }
 
 //deletes all list elements on click
@@ -95,6 +101,6 @@ $(document).on("change", ".checkbox", function() {
   } else {
     $(this)
       .parent()
-      .wrapInner("<s></s>");
+      .wrapInner("<s id='s'></s>");
   }
 });
