@@ -4,7 +4,6 @@ var input = document.getElementById("userinput");
 var ul = document.getElementById("ul");
 var ClearAll = document.getElementById("clear");
 var listItems = document.getElementsByClassName("list-group-item");
-var del = document.getElementById("del");
 
 //returns length of list
 function listLength() {
@@ -20,6 +19,7 @@ function inputLength() {
 function createListElement() {
   var li = document.createElement("li");
   li.className = "list-group-item list-group-item-info";
+  li.setAttribute("id", "li");
   var cbox = document.createElement("input");
   cbox.setAttribute("type", "checkbox");
   cbox.className = "checkbox";
@@ -31,7 +31,7 @@ function createListElement() {
   delbtn.className = "far fa-trash-alt float-right";
   delbtn.setAttribute("id", "del");
   li.appendChild(delbtn);
-  // delbtn.onclick = removeParent;
+  delbtn.onclick = removeParent;
 }
 
 //adds element once button clicked
@@ -58,7 +58,7 @@ function deleteButton() {
   //Adds to existing list
   listItems[i].insertBefore(cbox, listItems[i].firstChild);
   listItems[i].appendChild(delbtn);
-  // delbtn.onclick = removeParent;
+  delbtn.onclick = removeParent;
 }
 //runs to add delete buttons to existing items
 for (i = 0; i < listLength(); i++) {
@@ -66,23 +66,14 @@ for (i = 0; i < listLength(); i++) {
 }
 
 //removes parent node. First checks if parent node is <li> and if so, removes parent. Otherwise it will be <s> so removes grandparent <li>
-$(document).on("click", "#del", function() {
-  console.log($(this));
-  if (
-    $(this)
-      .parent()
-      .is($("li"))
-  ) {
-    $(this)
-      .parent()
-      .remove();
+function removeParent(evt) {
+  console.log(evt.target.parentElement.getAttribute("id") == "li");
+  if (evt.target.parentElement.getAttribute("id") == "li") {
+    evt.target.parentElement.remove();
   } else {
-    $(this)
-      .parent()
-      .parent()
-      .remove();
+    evt.target.parentElement.parentElement.remove();
   }
-});
+}
 
 //deletes all list elements on click
 ClearAll.onclick = function(evt) {
@@ -115,3 +106,22 @@ $(document).on("change", ".checkbox", function() {
       .wrapInner("<s id='s'></s>");
   }
 });
+
+//removes parent node. First checks if parent node is <li> and if so, removes parent. Otherwise it will be <s> so removes grandparent <li>
+// $(document).on("click", "#del", function() {
+//   console.log($(this));
+//   if (
+//     $(this)
+//       .parent()
+//       .is($("li"))
+//   ) {
+//     $(this)
+//       .parent()
+//       .remove();
+//   } else {
+//     $(this)
+//       .parent()
+//       .parent()
+//       .remove();
+//   }
+// });
