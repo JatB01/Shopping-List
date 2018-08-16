@@ -1,10 +1,10 @@
 //Declare variables
-window.alert("updated");
 var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.getElementById("ul");
 var ClearAll = document.getElementById("clear");
 var listItems = document.getElementsByClassName("list-group-item");
+var del = document.getElementById("del");
 
 //returns length of list
 function listLength() {
@@ -67,21 +67,21 @@ for (i = 0; i < listLength(); i++) {
 
 //removes parent node. First checks if parent node is <li> and if so, removes parent. Otherwise it will be <s> so removes grandparent <li>
 $(document).on("click", "#del", function() {
-  // console.log($(this));
-  // if (
-  //   $(this)
-  //     .parent()
-  //     .is($("li"))
-  // ) {
-  $(this)
-    .parent()
-    .remove();
-  // } else {
-  //   $(this)
-  //     .parent()
-  //     .parent()
-  //     .remove();
-  // }
+  console.log($(this));
+  if (
+    $(this)
+      .parent()
+      .is($("li"))
+  ) {
+    $(this)
+      .parent()
+      .remove();
+  } else {
+    $(this)
+      .parent()
+      .parent()
+      .remove();
+  }
 });
 
 //deletes all list elements on click
